@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "./Navbar";
 import SpotSearchForm from "./SpotSearchForm";
 import SpotsList from "./SpotsList";
@@ -6,8 +7,21 @@ import InteractiveMap from "./InteractiveMap";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
 
+const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
+
 function UserHome(props) {
   const { classes } = props;
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const response = await axios.get(API_URL + "/spot");
+    setRows(response.data);
+  }
+
   return (
     <div className={classes.userHomeContainer}>
       <div className={classes.navbar}>
@@ -20,7 +34,7 @@ function UserHome(props) {
         <SpotSearchForm />
       </div>
       <div className={classes.table}>
-        <SpotsList />
+        <SpotsList spots={rows} />
       </div>
     </div>
   );
