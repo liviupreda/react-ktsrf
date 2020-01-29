@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -16,18 +16,9 @@ const useStyles = makeStyles({
 });
 
 const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
-const rows = [
-  seedData("Test Spot", "Botswana", 25.25, 75.75, 50 + "%", "January")
-];
+const rows = [];
 
-function seedData(
-  name,
-  country,
-  latitude,
-  longitude,
-  windProbability,
-  whenToGo
-) {
+function seedData(name, country, lat, long, probability, month) {
   axios.get(API_URL + "/spot").then(response => {
     response.data.map(spot => {
       let seeder = {
@@ -42,11 +33,13 @@ function seedData(
     });
     console.log(rows);
   });
-  return { name, country, latitude, longitude, windProbability, whenToGo };
+  return { name, country, lat, long, probability, month };
 }
 
 export default function SpotsList() {
   const classes = useStyles();
+  // useEffect(() => seedData());
+  seedData();
 
   return (
     <TableContainer component={Paper}>
@@ -68,10 +61,10 @@ export default function SpotsList() {
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.country}</TableCell>
-              <TableCell align="right">{row.latitude}</TableCell>
-              <TableCell align="right">{row.longitude}</TableCell>
-              <TableCell align="right">{row.windProbability}</TableCell>
-              <TableCell align="right">{row.whenToGo}</TableCell>
+              <TableCell align="right">{row.lat}</TableCell>
+              <TableCell align="right">{row.long}</TableCell>
+              <TableCell align="right">{row.probability} + '%'</TableCell>
+              <TableCell align="right">{row.month}</TableCell>
             </TableRow>
           ))}
         </TableBody>
