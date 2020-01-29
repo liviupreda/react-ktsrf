@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "../styles/LoginPageStyles";
 
 function LoginPage(props) {
+  const { classes } = props;
   const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
 
-  const handleChange = e => {
+  const handleNameChange = e => {
+    setUserName(e.target.value);
+  };
+
+  const handleEmailChange = e => {
     setEmail(e.target.value);
   };
 
@@ -14,11 +22,19 @@ function LoginPage(props) {
   };
 
   return (
-    <div>
+    <div className={classes.LoginFormContainer}>
       <ValidatorForm onSubmit={handleSubmit}>
         <TextValidator
+          label="Username"
+          onChange={handleNameChange}
+          name="username"
+          value={username}
+          validators={["required"]}
+          errorMessages={["this field is required"]}
+        />
+        <TextValidator
           label="Email"
-          onChange={handleChange}
+          onChange={handleEmailChange}
           name="email"
           value={email}
           validators={["required", "isEmail"]}
@@ -30,4 +46,4 @@ function LoginPage(props) {
   );
 }
 
-export default LoginPage;
+export default withStyles(styles)(LoginPage);
