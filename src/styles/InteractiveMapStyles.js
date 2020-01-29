@@ -1,5 +1,5 @@
-export default {
-  mapContainer: {
-    height: "10vh"
-  }
-};
+// export default {
+//   mapContainer: {
+//     height: "50vh"
+//   }
+// };

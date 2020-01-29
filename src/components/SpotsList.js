@@ -8,18 +8,20 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
-import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "../styles/SpotsListStyles";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650
-  }
-});
+// const useStyles = makeStyles({
+//   table: {
+//     minWidth: 650
+//   }
+// });
 
 const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
 
-export default function SpotsList() {
-  const classes = useStyles();
+function SpotsList(props) {
+  // const classes = useStyles();
+  const { classes } = props;
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -30,11 +32,9 @@ export default function SpotsList() {
     fetchData();
   }, []);
 
-  const seedData = async () => {};
-
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className={classes.tableContainer}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -66,3 +66,5 @@ export default function SpotsList() {
     </div>
   );
 }
+
+export default withStyles(styles)(SpotsList);
