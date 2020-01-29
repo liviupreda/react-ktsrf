@@ -9,7 +9,7 @@ export default {
     marginRight: "15px",
     padding: "0 13px",
     fontSize: "22px",
-    backgroundColor: "#eee",
+    backgroundColor: "rgba(0, 212, 255, 1)",
     fontFamily: '"Roboto", sans-serif',
     height: "100%",
     display: "flex",
@@ -20,17 +20,8 @@ export default {
     }
   },
   signout: {
-    marginRight: "15px",
-    padding: "0 13px",
-    fontSize: "22px",
-    backgroundColor: "#eee",
-    fontFamily: '"Roboto", sans-serif',
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
     "& a": {
-      textDecoration: "none",
-      color: "black"
+      textDecoration: "none"
     }
   }
 };
