@@ -1,4 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+
+function SpotSearchForm(props) {
+  const [input, setInput] = useState("");
+
+  const handleChange = e => {
+    setInput(e.target.value);
+  };
+
+  return (
+    <div className="SpotSearchForm">
+      <p>Locations</p>
+      <div>
+        <input type="text" onChange={handleChange} />
+        <Button type="submit">Search</Button>
+      </div>
+    </div>
+  );
+}
+
+export default SpotSearchForm;

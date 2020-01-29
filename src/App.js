@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import LoginPage from "./components/LoginPage";
+import UserHome from "./components/UserHome";
 import "./App.css";
 
 function App() {
@@ -13,7 +13,11 @@ function App() {
           path="/"
           render={routeProps => <LoginPage {...routeProps} />}
         />
-        <Route exact path="/home" render={() => <Navbar />} />
+        <Route
+          exact
+          path="/home"
+          render={routeProps => <UserHome {...routeProps} />}
+        />
       </Switch>
     </Router>
   );
