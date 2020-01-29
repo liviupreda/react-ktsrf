@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -14,7 +15,12 @@ const useStyles = makeStyles({
   }
 });
 
-function createData(
+const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
+const rows = [
+  seedData("Test Spot", "Botswana", 25.25, 75.75, 50 + "%", "January")
+];
+
+function seedData(
   name,
   country,
   latitude,
@@ -22,16 +28,22 @@ function createData(
   windProbability,
   whenToGo
 ) {
+  axios.get(API_URL + "/spot").then(response => {
+    response.data.map(spot => {
+      let seeder = {
+        name: spot.name,
+        country: spot.country,
+        lat: spot.lat,
+        long: spot.long,
+        probability: spot.probability,
+        month: spot.month
+      };
+      rows.push(seeder);
+    });
+    console.log(rows);
+  });
   return { name, country, latitude, longitude, windProbability, whenToGo };
 }
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9)
-];
 
 export default function SpotsList() {
   const classes = useStyles();

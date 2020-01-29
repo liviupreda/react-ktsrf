@@ -3,7 +3,6 @@ import axios from "axios";
 import { Button } from "@material-ui/core";
 
 function SpotSearchForm(props) {
-  const axios = require("axios");
   const url = "https://5e3064ed576f9d0014d63faf.mockapi.io";
   const [input, setInput] = useState("");
 
@@ -12,7 +11,7 @@ function SpotSearchForm(props) {
   };
 
   const handleSubmit = () => {
-    axios.get(url + "/spot").then(response => console.log(response));
+    axios.get(url + "/spot").then(response => console.log(response.data));
   };
 
   return (
