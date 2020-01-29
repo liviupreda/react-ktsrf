@@ -1,7 +1,7 @@
 export default {
-  nav: {
+  navbar: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-center",
     alignItems: "center",
     height: "5vh"
   }

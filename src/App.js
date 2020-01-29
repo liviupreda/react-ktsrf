@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      {/* <Logo />
-      <MapContainer />
-      <SearchForm />
-      <SpotDetailsTable /> */}
-    </div>
+    <Router>
+      <Switch>
+        <Route
+          exact
+          path="/home"
+          render={routeProps => <Navbar {...routeProps} />}
+        />
+      </Switch>
+    </Router>
   );
 }
 
