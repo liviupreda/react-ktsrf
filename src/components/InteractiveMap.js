@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles/UserHomeStyles";
 
 const mapStyles = {
-  width: "90vh",
-  height: "30vh"
+  width: "100vw",
+  height: "40vh",
+  marginBottom: "2rem"
 };
 
 export class MapContainer extends Component {

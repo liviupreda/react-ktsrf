@@ -1,9 +1,11 @@
 export default {
   navbar: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "center",
-    height: "5vh"
+    height: "5vh",
+    backgroundColor: "cornflowerblue",
+    border: "0.1rem solid #333"
   },
   logo: {
     marginRight: "15px",
@@ -19,9 +21,17 @@ export default {
       color: "black"
     }
   },
-  signout: {
-    "& a": {
-      textDecoration: "none"
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "flex-end",
+    "& addspot": {
+      padding: "1rem"
+    },
+    "& signout": {
+      padding: "1rem",
+      "& a": {
+        textDecoration: "none"
+      }
     }
   }
 };

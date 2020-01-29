@@ -11,17 +11,19 @@ function Navbar(props) {
       <div className={classes.logo}>
         <a href="https://liviupreda.me/">KTSRF</a>
       </div>
-      <div className={classes.addspot}>
-        <Button variant="contained" color="primary">
-          Add Spot
-        </Button>
-      </div>
-      <div className={classes.signout}>
-        <Link to="/">
+      <div className={classes.buttonContainer}>
+        <div className={classes.addspot}>
           <Button variant="contained" color="primary">
-            Sign Out
+            Add Spot
           </Button>
-        </Link>
+        </div>
+        <div className={classes.signout}>
+          <Link to="/">
+            <Button variant="contained" color="primary">
+              Sign Out
+            </Button>
+          </Link>
+        </div>
       </div>
     </header>
   );

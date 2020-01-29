@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+import React from "react";
 import Navbar from "./Navbar";
 import SpotSearchForm from "./SpotSearchForm";
 import SpotsList from "./SpotsList";

@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
-
-import { makeStyles } from "@material-ui/core/styles";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
