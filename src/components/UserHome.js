@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import SpotSearchForm from "./SpotSearchForm";
 import SpotsList from "./SpotsList";
 import InteractiveMap from "./InteractiveMap";
+import PageFooter from "./PageFooter";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
 
