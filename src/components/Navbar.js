@@ -2,12 +2,13 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/NavbarStyles";
 
-const Navbar = () => {
+function Navbar(props) {
+  const { classes } = props;
   return (
-    <nav>
-      <p>Logout</p>
+    <nav className={classes.nav}>
+      <p className="Logout">Logout</p>
     </nav>
   );
-};
+}
 
 export default withStyles(styles)(Navbar);
