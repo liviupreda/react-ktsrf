@@ -8,12 +8,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={LoginPage} />
         <Route
           exact
-          path="/home"
-          render={routeProps => <Navbar {...routeProps} />}
+          path="/"
+          render={routeProps => <LoginPage {...routeProps} />}
         />
+        <Route exact path="/home" render={() => <Navbar />} />
       </Switch>
     </Router>
   );
