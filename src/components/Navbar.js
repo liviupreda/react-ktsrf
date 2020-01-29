@@ -1,11 +1,13 @@
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "../styles/NavbarStyles";
 
 const Navbar = () => {
   return (
-    <nav style={{ display: "flex", justifyContent: "flex-end" }}>
-      <p className="f3 link dim black underline pa3 pointer">Logout</p>
+    <nav>
+      <p>Logout</p>
     </nav>
   );
 };
 
-export default Navbar;
+export default withStyles(styles)(Navbar);
