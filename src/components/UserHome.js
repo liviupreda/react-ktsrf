@@ -28,7 +28,7 @@ function UserHome(props) {
       {/* <div className={classes.navbar}>
         <Navbar />
       </div> */}
-      <div classname={classes.appbar}>
+      <div className={classes.appbar}>
         <PrimarySearchAppBar />
       </div>
       <div className={classes.map}>
