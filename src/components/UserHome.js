@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
+import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import SpotSearchForm from "./SpotSearchForm";
 import SpotsList from "./SpotsList";
 import InteractiveMap from "./InteractiveMap";
@@ -25,15 +25,18 @@ function UserHome(props) {
 
   return (
     <div className={classes.userHomeContainer}>
-      <div className={classes.navbar}>
+      {/* <div className={classes.navbar}>
         <Navbar />
+      </div> */}
+      <div classname={classes.appbar}>
+        <PrimarySearchAppBar />
       </div>
       <div className={classes.map}>
         <InteractiveMap />
       </div>
-      <div className={classes.form}>
+      {/* <div className={classes.form}>
         <SpotSearchForm />
-      </div>
+      </div> */}
       <div className={classes.table}>
         <SpotsList spots={rows} />
       </div>

@@ -12,11 +12,11 @@ export default {
     marginBottom: "2rem"
   },
   map: {
-    height: "30vh"
+    height: "50vh"
   },
   form: {
     height: "20vh",
-    margin: "2rem, 5rem",
+    margin: "1rem, 5rem",
     padding: "2rem",
     position: "relative",
     zIndex: "100",
@@ -24,6 +24,6 @@ export default {
     top: "5vh"
   },
   table: {
-    height: "50vh"
+    height: "55vh"
   }
 };
