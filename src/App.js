@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
+import LogIn from "./components/LogIn.js";
+import SignUp from "./components/SignUp";
 import UserHome from "./components/UserHome";
 import "./App.css";
 
@@ -11,7 +12,12 @@ function App() {
         <Route
           exact
           path="/"
-          render={routeProps => <LoginPage {...routeProps} />}
+          render={routeProps => <LogIn {...routeProps} />}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={routeProps => <SignUp {...routeProps} />}
         />
         <Route
           exact

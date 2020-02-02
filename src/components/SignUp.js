@@ -40,7 +40,7 @@ function LoginPage(props) {
           validators={["required", "isEmail"]}
           errorMessages={["this field is required", "email is not valid"]}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Sign Up</Button>
       </ValidatorForm>
     </div>
   );
