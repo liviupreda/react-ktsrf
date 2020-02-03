@@ -10,7 +10,7 @@ const LogIn = props => {
             <legend className="f2 fw6 ph0 mh0">Log In</legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">
-                Email
+                E-mail
               </label>
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"

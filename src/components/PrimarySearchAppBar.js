@@ -196,6 +196,9 @@ export default function PrimarySearchAppBar(props) {
             />
           </div>
           <div className={classes.grow} />
+          <Typography className={classes.greeting} variant="h6" noWrap>
+            Hai Salut Gigele
+          </Typography>
           <div className={classes.sectionDesktop}>
             <IconButton
               edge="end"
