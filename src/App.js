@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const [route, setRoute] = useState("login");
-  const onRouteChange = () => {
+  const onRouteChange = route => {
     setRoute("home");
   };
 
@@ -17,7 +17,7 @@ function App() {
       {route === "login" ? (
         <LogIn onRouteChange={onRouteChange} />
       ) : (
-        <UserHome />
+        <UserHome route={route} setRoute={setRoute} />
       )}
     </div>
   );
