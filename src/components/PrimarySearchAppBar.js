@@ -80,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { route, setRoute } = props;
+  const { setRoute } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 

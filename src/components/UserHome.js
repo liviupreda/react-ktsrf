@@ -11,7 +11,7 @@ import styles from "../styles/UserHomeStyles";
 const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
 
 function UserHome(props) {
-  const { classes, route, setRoute } = props;
+  const { classes, setRoute } = props;
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function UserHome(props) {
   return (
     <div className={classes.userHomeContainer}>
       <div className={classes.appbar}>
-        <PrimarySearchAppBar route={route} setRoute={setRoute} />
+        <PrimarySearchAppBar setRoute={setRoute} />
       </div>
       <div className={classes.map}>
         <InteractiveMap />

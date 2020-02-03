@@ -8,16 +8,13 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const [route, setRoute] = useState("login");
-  const onRouteChange = route => {
-    setRoute("home");
-  };
 
   return (
     <div className="App">
       {route === "login" ? (
-        <LogIn onRouteChange={onRouteChange} />
+        <LogIn setRoute={setRoute} />
       ) : (
-        <UserHome route={route} setRoute={setRoute} />
+        <UserHome setRoute={setRoute} />
       )}
     </div>
   );
