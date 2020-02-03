@@ -20,6 +20,11 @@ function LogIn(props) {
       .then(res => console.log("OK", res.data));
   }
 
+  async function login() {
+    const res = await axios.post(apiUrl + "/login");
+    console.log(res.data);
+  }
+
   const handleEmailFieldChange = e => {
     setEmail(e.target.value);
   };
@@ -30,6 +35,7 @@ function LogIn(props) {
 
   const handleSubmit = () => {
     console.log(email, password);
+    login();
     setRoute("home");
     setIsLoggedIn(true);
   };
@@ -67,6 +73,7 @@ function LogIn(props) {
           </fieldset>
           <div className="">
             <input
+              onClick={handleSubmit}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
               type="submit"
               value="Log In"
