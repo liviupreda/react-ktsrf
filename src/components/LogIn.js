@@ -3,6 +3,8 @@ import axios from "axios";
 
 function LogIn(props) {
   const { setRoute, setIsLoggedIn, apiUrl } = props;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     fetchUserData();
@@ -17,10 +19,25 @@ function LogIn(props) {
       })
       .then(res => console.log("OK", res.data));
   }
+
+  const handleEmailFieldChange = e => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordFieldChange = e => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log(email, password);
+    setRoute("home");
+    setIsLoggedIn(true);
+  };
+
   return (
     <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
       <main className="pa4 black-80">
-        <div className="measure">
+        <form className="measure" onSubmit={handleSubmit}>
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f2 fw6 ph0 mh0">Log In</legend>
             <div className="mt3">
@@ -32,6 +49,7 @@ function LogIn(props) {
                 type="email"
                 name="email-address"
                 id="email-address"
+                onChange={handleEmailFieldChange}
               />
             </div>
             <div className="mv3">
@@ -43,15 +61,12 @@ function LogIn(props) {
                 type="password"
                 name="password"
                 id="password"
+                onChange={handlePasswordFieldChange}
               />
             </div>
           </fieldset>
           <div className="">
             <input
-              onClick={() => {
-                setRoute("home");
-                setIsLoggedIn(true);
-              }}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
               type="submit"
               value="Log In"
@@ -65,7 +80,7 @@ function LogIn(props) {
               Sign up
             </p>
           </div>
-        </div>
+        </form>
       </main>
     </article>
   );
