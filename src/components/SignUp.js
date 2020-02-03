@@ -7,6 +7,15 @@ function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  async function loginUser() {
+    const params = {
+      email: email,
+      password: password
+    };
+    const res = await axios.post(apiUrl + "/login", params);
+    console.log(res.data);
+  }
+
   async function createNewUser() {
     const params = {
       name: name,
@@ -32,6 +41,7 @@ function SignUp(props) {
 
   const handleSubmit = () => {
     createNewUser();
+    loginUser();
     setRoute("home");
     setIsLoggedIn(true);
   };
