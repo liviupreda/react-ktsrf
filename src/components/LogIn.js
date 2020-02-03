@@ -20,8 +20,12 @@ function LogIn(props) {
       .then(res => console.log("OK", res.data));
   }
 
-  async function login() {
-    const res = await axios.post(apiUrl + "/login");
+  async function loginUser() {
+    const params = {
+      email: email,
+      password: password
+    };
+    const res = await axios.post(apiUrl + "/login", params);
     console.log(res.data);
   }
 
@@ -34,8 +38,7 @@ function LogIn(props) {
   };
 
   const handleSubmit = () => {
-    console.log(email, password);
-    login();
+    loginUser();
     setRoute("home");
     setIsLoggedIn(true);
   };
