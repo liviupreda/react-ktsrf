@@ -4,6 +4,8 @@ import SignUp from "./components/SignUp";
 import UserHome from "./components/UserHome";
 import "./App.css";
 
+const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
+
 function App() {
   const [input, setInput] = useState("");
   const [route, setRoute] = useState("login");
@@ -12,7 +14,11 @@ function App() {
   return (
     <div className="App">
       {route === "home" ? (
-        <UserHome setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
+        <UserHome
+          setRoute={setRoute}
+          setIsLoggedIn={setIsLoggedIn}
+          apiUrl={API_URL}
+        />
       ) : route === "login" ? (
         <LogIn setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
       ) : (

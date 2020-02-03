@@ -8,10 +8,8 @@ import PageFooter from "./PageFooter";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
 
-const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
-
 function UserHome(props) {
-  const { classes, setRoute, setIsLoggedIn } = props;
+  const { classes, apiUrl, setRoute, setIsLoggedIn } = props;
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -19,8 +17,8 @@ function UserHome(props) {
   }, []);
 
   async function fetchData() {
-    const response = await axios.get(API_URL + "/spot");
-    setRows(response.data);
+    const res = await axios.get(apiUrl + "/spot");
+    setRows(res.data);
   }
 
   return (
