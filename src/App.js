@@ -20,9 +20,17 @@ function App() {
           apiUrl={API_URL}
         />
       ) : route === "login" ? (
-        <LogIn setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
+        <LogIn
+          setRoute={setRoute}
+          setIsLoggedIn={setIsLoggedIn}
+          apiUrl={API_URL}
+        />
       ) : (
-        <SignUp setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
+        <SignUp
+          setRoute={setRoute}
+          setIsLoggedIn={setIsLoggedIn}
+          apiUrl={API_URL}
+        />
       )}
     </div>
   );

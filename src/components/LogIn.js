@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const LogIn = props => {
-  const { setRoute, setIsLoggedIn } = props;
+function LogIn(props) {
+  const { setRoute, setIsLoggedIn, apiUrl } = props;
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  async function fetchUserData() {
+    await axios
+      .get(apiUrl + "/user")
+      .catch(err => {
+        alert("Server Error: Could not retrieve user list");
+        console.log(err);
+      })
+      .then(res => console.log("OK", res.data));
+  }
   return (
     <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
       <main className="pa4 black-80">
@@ -54,6 +69,6 @@ const LogIn = props => {
       </main>
     </article>
   );
-};
+}
 
 export default LogIn;

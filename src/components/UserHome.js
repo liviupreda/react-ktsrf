@@ -13,10 +13,10 @@ function UserHome(props) {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchSpotData();
   }, []);
 
-  async function fetchData() {
+  async function fetchSpotData() {
     const res = await axios.get(apiUrl + "/spot");
     setRows(res.data);
   }
