@@ -25,18 +25,12 @@ function UserHome(props) {
 
   return (
     <div className={classes.userHomeContainer}>
-      {/* <div className={classes.navbar}>
-        <Navbar />
-      </div> */}
       <div className={classes.appbar}>
         <PrimarySearchAppBar />
       </div>
       <div className={classes.map}>
         <InteractiveMap />
       </div>
-      {/* <div className={classes.form}>
-        <SpotSearchForm />
-      </div> */}
       <div className={classes.table}>
         <SpotsList spots={rows} />
       </div>
