@@ -11,7 +11,7 @@ import styles from "../styles/UserHomeStyles";
 const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
 
 function UserHome(props) {
-  const { classes, setRoute } = props;
+  const { classes, setRoute, setIsLoggedIn } = props;
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,10 @@ function UserHome(props) {
   return (
     <div className={classes.userHomeContainer}>
       <div className={classes.appbar}>
-        <PrimarySearchAppBar setRoute={setRoute} />
+        <PrimarySearchAppBar
+          setRoute={setRoute}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       </div>
       <div className={classes.map}>
         <InteractiveMap />

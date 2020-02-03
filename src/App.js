@@ -7,15 +7,16 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const [route, setRoute] = useState("login");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="App">
       {route === "home" ? (
-        <UserHome setRoute={setRoute} />
+        <UserHome setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
       ) : route === "login" ? (
-        <LogIn setRoute={setRoute} />
+        <LogIn setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
       ) : (
-        <SignUp setRoute={setRoute} />
+        <SignUp setRoute={setRoute} setIsLoggedIn={setIsLoggedIn} />
       )}
     </div>
   );

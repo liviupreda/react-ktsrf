@@ -80,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { setRoute } = props;
+  const { setRoute, setIsLoggedIn } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -115,7 +115,14 @@ export default function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => setRoute("login")}>Log Out</MenuItem>
+      <MenuItem
+        onClick={() => {
+          setRoute("login");
+          setIsLoggedIn(false);
+        }}
+      >
+        Log Out
+      </MenuItem>
     </Menu>
   );
 
