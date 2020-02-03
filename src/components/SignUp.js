@@ -1,49 +1,59 @@
-import React, { useState } from "react";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { Button } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles/LoginPageStyles";
+import React from "react";
 
-function LoginPage(props) {
-  const { classes } = props;
-  const [email, setEmail] = useState("");
-  const [username, setUserName] = useState("");
-
-  const handleNameChange = e => {
-    setUserName(e.target.value);
-  };
-
-  const handleEmailChange = e => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    props.history.push("/home");
-  };
-
+const SignUp = props => {
+  const { setRoute } = props;
   return (
-    <div className={classes.LoginFormContainer}>
-      <ValidatorForm onSubmit={handleSubmit}>
-        <TextValidator
-          label="Username"
-          onChange={handleNameChange}
-          name="username"
-          value={username}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-        />
-        <TextValidator
-          label="Email"
-          onChange={handleEmailChange}
-          name="email"
-          value={email}
-          validators={["required", "isEmail"]}
-          errorMessages={["this field is required", "email is not valid"]}
-        />
-        <Button type="submit">Sign Up</Button>
-      </ValidatorForm>
-    </div>
+    <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+      <main className="pa4 black-80">
+        <form className="measure">
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+            <legend className="f2 fw6 ph0 mh0">Sign Up</legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="username">
+                User Name
+              </label>
+              <input
+                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                type="text"
+                name="username"
+                id="username"
+              />
+            </div>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">
+                Email
+              </label>
+              <input
+                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                type="email"
+                name="email-address"
+                id="email-address"
+              />
+            </div>
+            <div className="mv3">
+              <label className="db fw6 lh-copy f6" htmlFor="password">
+                Password
+              </label>
+              <input
+                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                type="password"
+                name="password"
+                id="password"
+              />
+            </div>
+          </fieldset>
+          <div className="">
+            <input
+              onClick={() => setRoute("signup")}
+              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+              type="submit"
+              value="Log In"
+            />
+          </div>
+        </form>
+      </main>
+    </article>
   );
-}
+};
 
-export default withStyles(styles)(LoginPage);
+export default SignUp;

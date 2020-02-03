@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LogIn from "./components/LogIn.js";
 import SignUp from "./components/SignUp";
 import UserHome from "./components/UserHome";
@@ -11,10 +10,12 @@ function App() {
 
   return (
     <div className="App">
-      {route === "login" ? (
+      {route === "home" ? (
+        <UserHome setRoute={setRoute} />
+      ) : route === "login" ? (
         <LogIn setRoute={setRoute} />
       ) : (
-        <UserHome setRoute={setRoute} />
+        <SignUp setRoute={setRoute} />
       )}
     </div>
   );
