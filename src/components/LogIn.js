@@ -5,6 +5,7 @@ function LogIn(props) {
   const { setRoute, setIsLoggedIn, apiUrl } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
   useEffect(() => {
     fetchUserData();
@@ -56,6 +57,9 @@ function LogIn(props) {
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
+                title="Please enter a valid e-mail address"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 name="email-address"
                 id="email-address"
                 onChange={handleEmailFieldChange}
@@ -68,6 +72,7 @@ function LogIn(props) {
               <input
                 className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="password"
+                required
                 name="password"
                 id="password"
                 onChange={handlePasswordFieldChange}
@@ -75,12 +80,14 @@ function LogIn(props) {
             </div>
           </fieldset>
           <div className="">
-            <input
-              onClick={handleSubmit}
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+            <button
               type="submit"
-              value="Log In"
-            />
+              onClick={handleSubmit}
+              className="b ph3 pv2 ba b--black bg-transparent grow pointer f6 dib"
+              disabled={submitButtonDisabled}
+            >
+              Log In
+            </button>
           </div>
           <div className="lh-copy mt3">
             <p
