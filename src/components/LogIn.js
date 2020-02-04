@@ -5,7 +5,6 @@ function LogIn(props) {
   const { setRoute, setIsLoggedIn, apiUrl } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
   useEffect(() => {
     fetchUserData();
@@ -84,7 +83,6 @@ function LogIn(props) {
               type="submit"
               onClick={handleSubmit}
               className="b ph3 pv2 ba b--black bg-transparent grow pointer f6 dib"
-              disabled={submitButtonDisabled}
             >
               Log In
             </button>
