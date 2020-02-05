@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import SimpleSnackbar from "./Snackbar";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -82,15 +83,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { setRoute, setIsLoggedIn, apiUrl } = props;
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const { setRoute, setIsLoggedIn, apiUrl, toggleSnackbar } = props;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleButtonClick = () => {
     addSpot();
+    toggleSnackbar();
   };
 
   async function addSpot() {
@@ -215,7 +217,7 @@ export default function PrimarySearchAppBar(props) {
           </Button>
           <div className={classes.grow} />
           <Typography className={classes.greeting} variant="h6" noWrap>
-            Hai Salut Gigele
+            Hello, [Username] !
           </Typography>
           <div className={classes.sectionDesktop}>
             <IconButton

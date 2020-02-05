@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
-import SpotSearchForm from "./SpotSearchForm";
-import SpotsList from "./SpotsList";
 import EnhancedTable from "./SortableTable";
 import InteractiveMap from "./InteractiveMap";
-import PageFooter from "./PageFooter";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
+import SimpleSnackbar from "./Snackbar";
 
 function UserHome(props) {
   const { classes, apiUrl, setRoute, setIsLoggedIn } = props;
   const [rows, setRows] = useState([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   useEffect(() => {
     fetchSpotData();
@@ -20,7 +19,12 @@ function UserHome(props) {
   async function fetchSpotData() {
     const res = await axios.get(apiUrl + "/spot");
     setRows(res.data);
+    console.log(res.data.length);
   }
+
+  const toggleSnackbar = () => {
+    setSnackbarOpen(true);
+  };
 
   return (
     <div className={classes.userHomeContainer}>
@@ -29,6 +33,7 @@ function UserHome(props) {
           setRoute={setRoute}
           setIsLoggedIn={setIsLoggedIn}
           apiUrl={apiUrl}
+          toggleSnackbar={() => toggleSnackbar()}
         />
       </div>
       <div className={classes.map}>
@@ -36,6 +41,9 @@ function UserHome(props) {
       </div>
       <div className={classes.table}>
         <EnhancedTable rows={rows} apiUrl={apiUrl} />
+      </div>
+      <div className={classes.snackbar}>
+        <SimpleSnackbar open={snackbarOpen} />
       </div>
     </div>
   );
