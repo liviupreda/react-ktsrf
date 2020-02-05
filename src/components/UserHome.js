@@ -28,6 +28,7 @@ function UserHome(props) {
         <PrimarySearchAppBar
           setRoute={setRoute}
           setIsLoggedIn={setIsLoggedIn}
+          apiUrl={apiUrl}
         />
       </div>
       <div className={classes.map}>

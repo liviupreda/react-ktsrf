@@ -1,7 +1,9 @@
 import React from "react";
+import axios from "axios";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
@@ -80,12 +82,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { setRoute, setIsLoggedIn } = props;
+  const { setRoute, setIsLoggedIn, apiUrl } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleButtonClick = () => {
+    addSpot();
+  };
+
+  async function addSpot() {
+    const res = await axios.post(apiUrl + "/spot");
+    console.log(res.data);
+  }
 
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
@@ -195,6 +206,13 @@ export default function PrimarySearchAppBar(props) {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleButtonClick}
+          >
+            Add Spot
+          </Button>
           <div className={classes.grow} />
           <Typography className={classes.greeting} variant="h6" noWrap>
             Hai Salut Gigele
