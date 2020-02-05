@@ -3,6 +3,7 @@ import axios from "axios";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import SpotSearchForm from "./SpotSearchForm";
 import SpotsList from "./SpotsList";
+import SortableTable from "./SortableTable";
 import InteractiveMap from "./InteractiveMap";
 import PageFooter from "./PageFooter";
 import { withStyles } from "@material-ui/core/styles";
@@ -33,8 +34,11 @@ function UserHome(props) {
         <InteractiveMap />
       </div>
       <div className={classes.table}>
-        <SpotsList spots={rows} />
+        <SortableTable />
       </div>
+      {/* <div className={classes.table}>
+        <SpotsList spots={rows} />
+      </div> */}
     </div>
   );
 }
