@@ -22,8 +22,9 @@ function UserHome(props) {
     console.log(res.data.length);
   }
 
-  const toggleSnackbar = () => {
+  const openSnackbar = () => {
     setSnackbarOpen(true);
+    console.log(snackbarOpen);
   };
 
   return (
@@ -33,7 +34,7 @@ function UserHome(props) {
           setRoute={setRoute}
           setIsLoggedIn={setIsLoggedIn}
           apiUrl={apiUrl}
-          toggleSnackbar={() => toggleSnackbar()}
+          toggleSnackbar={openSnackbar}
         />
       </div>
       <div className={classes.map}>

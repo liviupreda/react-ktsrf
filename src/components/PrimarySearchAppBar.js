@@ -90,8 +90,7 @@ export default function PrimarySearchAppBar(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleButtonClick = () => {
-    addSpot();
+  const handleClick = () => {
     toggleSnackbar();
   };
 
@@ -208,11 +207,7 @@ export default function PrimarySearchAppBar(props) {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleButtonClick}
-          >
+          <Button variant="contained" color="primary" onClick={handleClick}>
             Add Spot
           </Button>
           <div className={classes.grow} />

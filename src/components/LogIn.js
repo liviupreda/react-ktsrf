@@ -25,8 +25,9 @@ function LogIn(props) {
       email: email,
       password: password
     };
-    const res = await axios.post(apiUrl + "/login", params);
-    console.log(res.data);
+    const res = await axios
+      .post(apiUrl + "/login", params)
+      .catch(err => console.log(err));
   }
 
   const handleEmailFieldChange = e => {

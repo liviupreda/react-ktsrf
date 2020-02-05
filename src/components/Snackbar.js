@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -13,11 +13,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleSnackbar(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(props.open);
-
-  const handleClick = () => {
-    setOpen(true);
-  };
+  const [open, setOpen] = useState(props.open);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -29,7 +25,6 @@ export default function SimpleSnackbar(props) {
 
   return (
     <div>
-      <Button onClick={handleClick}>Open simple snackbar</Button>
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",

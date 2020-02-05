@@ -7,7 +7,7 @@ import "./App.css";
 const API_URL = "https://5e3064ed576f9d0014d63faf.mockapi.io";
 
 function App() {
-  const [route, setRoute] = useState("home");
+  const [route, setRoute] = useState("login");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
