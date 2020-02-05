@@ -34,7 +34,7 @@ function UserHome(props) {
         <InteractiveMap />
       </div>
       <div className={classes.table}>
-        <EnhancedTable rows={rows} />
+        <EnhancedTable rows={rows} apiUrl={apiUrl} />
       </div>
     </div>
   );

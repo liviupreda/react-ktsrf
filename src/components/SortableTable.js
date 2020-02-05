@@ -186,7 +186,7 @@ const EnhancedTableToolbar = props => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
-          Nutrition
+          Kitesurf Spots Worldwide
         </Typography>
       )}
 
@@ -197,7 +197,7 @@ const EnhancedTableToolbar = props => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
+        <Tooltip title="Filter Spots">
           <IconButton aria-label="filter list">
             <FilterListIcon />
           </IconButton>
