@@ -5,12 +5,10 @@ import EnhancedTable from "./SortableTable";
 import InteractiveMap from "./InteractiveMap";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
-import SimpleSnackbar from "./Snackbar";
 
 function UserHome(props) {
   const { classes, apiUrl, setRoute, setIsLoggedIn } = props;
   const [rows, setRows] = useState([]);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   useEffect(() => {
     fetchSpotData();
@@ -22,11 +20,6 @@ function UserHome(props) {
     console.log(res.data.length);
   }
 
-  const openSnackbar = () => {
-    setSnackbarOpen(true);
-    console.log(snackbarOpen);
-  };
-
   return (
     <div className={classes.userHomeContainer}>
       <div className={classes.appbar}>
@@ -34,7 +27,6 @@ function UserHome(props) {
           setRoute={setRoute}
           setIsLoggedIn={setIsLoggedIn}
           apiUrl={apiUrl}
-          toggleSnackbar={openSnackbar}
         />
       </div>
       <div className={classes.map}>
@@ -42,9 +34,6 @@ function UserHome(props) {
       </div>
       <div className={classes.table}>
         <EnhancedTable rows={rows} apiUrl={apiUrl} />
-      </div>
-      <div className={classes.snackbar}>
-        <SimpleSnackbar open={snackbarOpen} />
       </div>
     </div>
   );

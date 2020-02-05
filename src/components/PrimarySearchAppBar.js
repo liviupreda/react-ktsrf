@@ -83,15 +83,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { setRoute, setIsLoggedIn, apiUrl, toggleSnackbar } = props;
+  const { setRoute, setIsLoggedIn, apiUrl } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+
+  const [snackbarOpen, setSnackbarOpen] = useState(true);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleClick = () => {
-    toggleSnackbar();
+    // do something
   };
 
   async function addSpot() {
@@ -251,6 +253,9 @@ export default function PrimarySearchAppBar(props) {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <div className={classes.snackbar}>
+        <SimpleSnackbar open={snackbarOpen} />
+      </div>
     </div>
   );
 }

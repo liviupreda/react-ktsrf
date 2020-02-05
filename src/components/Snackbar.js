@@ -19,7 +19,6 @@ export default function SimpleSnackbar(props) {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
