@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SimpleSnackbar from "./Snackbar";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,8 +15,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -83,17 +80,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
-  const { setRoute, setIsLoggedIn, apiUrl } = props;
+  const { setRoute, setIsLoggedIn, apiUrl, setOpen } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
-  const [snackbarOpen, setSnackbarOpen] = useState(true);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleClick = () => {
-    // do something
+    addSpot();
+    setOpen(true);
   };
 
   async function addSpot() {
@@ -112,10 +108,6 @@ export default function PrimarySearchAppBar(props) {
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = event => {
-    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const menuId = "primary-search-account-menu";
@@ -239,23 +231,11 @@ export default function PrimarySearchAppBar(props) {
             >
               <AccountCircle />
             </IconButton>
-            {/* <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton> */}
           </div>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <div className={classes.snackbar}>
-        <SimpleSnackbar open={snackbarOpen} />
-      </div>
     </div>
   );
 }

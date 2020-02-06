@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -20,25 +20,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
-
-// function createData(name, calories, fat, carbs, protein) {
-//   return { name, calories, fat, carbs, protein };
-// }
-function createData(name, country, lat, long, probability, month) {
-  return { name, country, lat, long, probability, month };
-}
-
-const rows = [
-  createData("Armstrong Group", "Norway", -5.6056, -123.1655, 64, "March"),
-  createData(
-    "Watsica, Eichmann and Tromp",
-    "Tuvalu",
-    7.3963,
-    62.9538,
-    37,
-    "February"
-  )
-];
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

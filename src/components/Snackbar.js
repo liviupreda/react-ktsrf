@@ -35,7 +35,7 @@ export default function SimpleSnackbar(props) {
         ContentProps={{
           "aria-describedby": "message-id"
         }}
-        message={<span id="message-id">Note archived</span>}
+        message={<span id="message-id">New Spot Added!</span>}
         action={[
           <Button
             key="undo"

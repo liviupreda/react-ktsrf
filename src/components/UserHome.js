@@ -3,12 +3,15 @@ import axios from "axios";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import EnhancedTable from "./SortableTable";
 import InteractiveMap from "./InteractiveMap";
+import SimpleSnackbar from "./Snackbar";
+
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/UserHomeStyles";
 
 function UserHome(props) {
   const { classes, apiUrl, setRoute, setIsLoggedIn } = props;
   const [rows, setRows] = useState([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(true);
 
   useEffect(() => {
     fetchSpotData();
@@ -27,6 +30,7 @@ function UserHome(props) {
           setRoute={setRoute}
           setIsLoggedIn={setIsLoggedIn}
           apiUrl={apiUrl}
+          setOpen={() => setSnackbarOpen()}
         />
       </div>
       <div className={classes.map}>
@@ -34,6 +38,9 @@ function UserHome(props) {
       </div>
       <div className={classes.table}>
         <EnhancedTable rows={rows} apiUrl={apiUrl} />
+      </div>
+      <div className={classes.snackbar}>
+        <SimpleSnackbar open={snackbarOpen} />
       </div>
     </div>
   );
